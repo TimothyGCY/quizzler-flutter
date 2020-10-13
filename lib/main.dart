@@ -36,11 +36,11 @@ class _QuizPageState extends State<QuizPage> {
 
   void chkAnswer(bool ans) {
     setState(() {
-      if (ans == Q.question[current].answer) {
+      if (ans == Q.getAnswer(current)) {
         scoreList.add(
           Icon(Icons.check, color: Colors.green),
         );
-        totalScore += (100.0 / Q.question.length);
+        totalScore += (100.0 / Q.getLength());
       } else
         scoreList.add(
           Icon(
@@ -70,7 +70,7 @@ class _QuizPageState extends State<QuizPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: current < Q.question.length
+      children: current < Q.getLength()
           ? <Widget>[
               Expanded(
                 flex: 5,
@@ -78,7 +78,7 @@ class _QuizPageState extends State<QuizPage> {
                   padding: EdgeInsets.all(10.0),
                   child: Center(
                     child: Text(
-                      'Question ${current + 1}: ${Q.question[current].question}',
+                      'Question ${current + 1}: ${Q.getQuestion(current)}',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 25.0,

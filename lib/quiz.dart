@@ -1,7 +1,7 @@
 import 'class/question.dart';
 
 class Quiz {
-  List<Question> question = [
+  final List<Question> question = [
     Question('Some cats are actually allergic to humans', true),
     Question('You can lead a cow down stairs but not up stairs.', false),
     Question('Approximately one quarter of human bones are in the feet.', true),
@@ -28,4 +28,16 @@ class Quiz {
         'In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.',
         true),
   ];
+
+  String getQuestion(int index) {
+    return question[index].question;
+  }
+
+  bool getAnswer(int index) {
+    return question[index].answer;
+  }
+
+  int getLength() {
+    return question.length;
+  }
 }
